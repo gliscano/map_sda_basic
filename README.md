@@ -2,7 +2,7 @@
 Visualizador de Mapas (Webmmaping) básico. Desarrollo bajo código libre con Javascript (librerias empleadas jQuery.js, leaflet.js + Amchart.js + geoJSON);
 (Fragmento de código)
 ***************************************************************************************
-Geoportables SDA, es una plataforma tecnológica que permite la gestión y análisis de datos espaciales y estadísticos mediante herramientas y aplicaciones de Sistemas de información Geográfica (SIG).
+Geoportales SDA, es una plataforma tecnológica que permite la gestión y análisis de datos espaciales y estadísticos mediante herramientas y aplicaciones de Sistemas de información Geográfica (SIG).
 
 Caracteristicas:
 Desarrollado bajo código libre.
