@@ -1,0 +1,78 @@
+html { height: 100% }
+html,body {
+	height: 100%;
+	margin: 0; 
+	padding: 0;
+}
+q:before,q:after {
+	content:'';
+}
+ol,ul {
+	list-style:none;
+}
+#map{
+top:0%;
+left: 0%;
+width: 100%;
+height: 92%;
+margin-top: 40px;
+position: absolute;
+z-index: 99;
+}
+#map_Layer{
+top:0%;
+left: 0%;
+width: 100%;
+height: 100%;
+border: solid 2px;
+border-color: #E0ECF8;
+box-shadow: 0 0 10px rgba(0,0,0,0.2);
+position: absolute;
+z-index: 999;
+}
+#map_bar{
+top: 0%;
+left: 0%;
+right: 0px;
+width: 100%;
+height: 45px;
+padding: 5px 5px 5px 5px;
+border-radius: 5px;
+background: rgb(27,27,27); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(27,27,27,1) 0%, rgba(56,56,56,1) 13%, rgba(78,78,78,1) 24%, rgba(10,10,10,1) 47%, rgba(1,1,1,1) 50%, rgba(13,13,13,1) 54%, rgba(149,149,149,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(27,27,27,1) 0%,rgba(56,56,56,1) 13%,rgba(78,78,78,1) 24%,rgba(10,10,10,1) 47%,rgba(1,1,1,1) 50%,rgba(13,13,13,1) 54%,rgba(149,149,149,1) 100%); /* Chrome10-25,Safari5.1-6 */
+position: absolute;
+z-index: 9999999;
+}
+#title_chart {
+text-align: center;
+color: #FFFFFF;
+font-size: 13px; 
+background: rgb(191,210,85); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(191,210,85,1) 0%,rgba(142,185,42,1) 50%,rgba(114,170,0,1) 51%,rgba(158,203,45,1) 100%); /* Chrome10-25,Safari5.1-6 */
+}
+#chartpie{
+top: 10%;	
+left: 1%;
+width: 49%;
+height: 90%;
+overflow: auto;
+text-align: center;
+position: absolute;	
+opacity: 0;
+z-index: 10;
+}
+#div_filter, #icon_filter{
+color:#FFFFFF;
+text-align: center;
+position: absolute;
+}
+#filter{
+width: auto;
+padding-left: 60px;
+opacity: 0;
+}
+#options{
+padding-left: 10px;	
+}

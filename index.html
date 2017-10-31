@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'/>
+		<title>Demo de Visualizador de Mapas...</title>
+		<!-- Definicíon de CSS-->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+		<link rel="stylesheet" href="css/leaflet.css" />
+		<link rel="stylesheet" href="css/vista.css" />
+		<link rel="stylesheet" href="css/fonts/style.css" />
+		<link rel="stylesheet" href="css/L.Control.MousePosition.css" />
+		<link rel="stylesheet" href="css/MarkerCluster.css" />
+		<link rel="stylesheet" href="css/style_MarkerCluster.css" />
+		<link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+        <link rel="stylesheet" href="css/Control.MiniMap.css" />
+		<!-- Libraries de JS-->
+		<script src="js/leaflet-0.7.3/leaflet.js"></script>
+		<script src="js/jquery/jquery-1.11.2.js"></script>
+		<script src="js/bootstrap/bootstrap.js"></script>
+		<script src="js/load_data.js" charset="utf-8"></script>
+		<script src="js/load_Controles.js"></script>
+		<script src="js/Google.js"></script>
+		<script src="js/controlador.js"></script>
+		<script src="js/Control.MiniMap.js"></script>
+		<script src="js/L.Control.MousePosition.js"></script>
+		<script src="js/markercluster/leaflet.markercluster-src.js"></script>
+		<script src="js/amcharts/amcharts.js"></script>
+		<script src="js/amcharts/pie.js"></script>
+		<!--Instancia de las capas geJson-->
+		<script src="json/dpt_estados.js"></script>
+		<script charset="UTF-8" src="json/estaciones_Servicios.js"></script>
+		<!-- Libraries Esri Leaflet from source-->
+		<script src="js/esri/EsriLeaflet.js"></script>
+		<script src="js/esri/Request.js"></script>
+		<script src="js/esri/Logo.js"></script>
+		<script src="js/esri/TiledMapLayer.js"></script>
+		<script src="js/esri/BasemapLayer.js"></script>
+	</head>
+	<body onload="load_data_dpt_estados()">
+	<form name="form_principal" action="">
+		<div id="chartpie"></div>
+		<div id="map_bar">	
+			<nav class="navbar" role="navigation">
+					<div>
+    					<ul class="nav navbar-nav">	
+					        <button id="title_chart" type="button" class="btn"><span id="icon_btn_charts" class="icon-arrow-right" ></span></button><label id="label_charts"></label>
+					        <button type="button" class="btn btn-default" onclick="view_home()" data-toggle="popover" data-content="Inicio"><span class="icon-home" ></span></button>
+						<div class="btn-group">    
+					        <button type="button" class="btn btn-default"><span class="icon-map"></span> Sector Petrolero</button>
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+							    <span class="caret"></span>
+							    <span class="sr-only"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+		                        <li><label><span class="check"><input type="checkbox" id="estaciones"></span>E/S de Combustible </label></li>
+					        </ul>
+					    </div>
+					    <div id="div_filter" class="btn-group">
+					    	<span id="icon_filter" class="icon-location" > Filtrar: </span>
+					    	<div id="filter" ></div>
+					    </div>
+					  </ul>  
+				    </div><!-- /.navbar-collapse -->
+				</nav>
+			</div>
+		<div id="map">	 
+			<div id="map_Layer">
+			</div>	
+		</div>
+		<script>
+			var m = L.map('map_Layer').setView([ 7, -65],6);
+			var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'gLiscano, <a href="http://osm.org/copyright">OpenStreetMap</a>'});
+			//cargar capas esri
+			var esri = L.esri.basemapLayer('Topographic');
+			var esri2 = L.esri.basemapLayer('Streets');
+			var esri3 = L.esri.basemapLayer('Imagery');
+			var escala = new L.control.scale({"position":"bottomleft","maxWidth": 100, "metric": true});
+			var mousePosition = new L.control.mousePosition();
+			m.addLayer(esri2);
+			m.addControl(new L.Control.Layers({'Esri Satellite':esri3,'ESRI Topografía':esri, 'ESRI Callejero':esri2, 'OpenStreeMap':osm}));
+			m.addControl(mousePosition);
+			m.addControl(escala);
+            //Control de Minimapa
+            var osm2 = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {minZoom: 0, maxZoom: 13, attribution:'gLiscano'});
+            var rect1 = {color: "#ff1100", weight: 3};
+            var rect2 = {color: "#0000AA", weight: 1, opacity:0, fillOpacity:0};
+            var miniMap = new L.Control.MiniMap(osm2, { toggleDisplay: true, aimingRectOptions : rect1, shadowRectOptions: rect2}).addTo(m);
+		</script>
+		</div>
+	</form>	
+	</body>
+</html>

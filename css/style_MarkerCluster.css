@@ -1,0 +1,16 @@
+.cluster_centros_electorales div {
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 5px;
+	background-color: #c72200;
+	opacity: 0.8;
+	border-radius: 15px;
+	text-align: center;
+	font: 14px "Arial", Helvetica, sans-serif;
+	font-weight: bold;
+	color: #ffffff;
+	}
+.cluster_centros_electorales span {
+	line-height: 30px;
+	}
